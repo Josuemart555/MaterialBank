@@ -1,0 +1,57 @@
+<div class="container main-container">
+
+  <h3>Prestamo</h3>
+  <button [routerLink]="['/prestamos']"
+          class="btn btn-outline-danger">
+    Regresar
+  </button>
+
+  <hr>
+
+  <div class="row">
+
+    <div class="col-md-8">
+
+      <form>
+
+        <div class="form-group">
+          <label>Numero Prestamo</label>
+          <input
+                 type="text" name=""
+                 class="form-control"
+                 placeholder="Numero Prestamo"
+                 required>
+        </div>
+
+        <div class="form-group">
+          <label>Saldo Inicial</label>
+          <input
+                 type="text" name=""
+                 class="form-control"
+                 placeholder="Saldo Inicial"
+                 required>
+        </div>
+
+        <div class="form-group">
+          <label>Cliente</label>
+          <select class="form-control" name="">
+            <option value="">Josue Martinez</option>
+            <option value="">Sofia Pedroza</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <button
+                  type="submit"
+                  class="btn btn-outline-primary">
+             Guardar
+          </button>
+        </div>
+
+      </form>
+
+    </div>
+
+  </div>
+
+</div>

@@ -1,0 +1,40 @@
+
+  <h1>Empleados</h1>
+  <hr>
+
+  <div class="row">
+    <div class="col-md-12 text-right">
+      <button type="button" name="button"
+              class="btn btn-outline-primary agregarCargoBoton"
+              [routerLink]="['/empleado','nuevo']">
+          <i class="fas fa-plus"></i> Agregar
+      </button>
+    </div>
+  </div>
+
+    <div class="card-columns">
+
+      <div class="card" *ngFor="let kempleado of empleados | keys">
+          <div class="card-block">
+            <h4 class="card-title">{{ empleados[kempleado].nombre }}</h4>
+            <p class="card-text">Código - {{ empleados[kempleado].codigo }}</p>
+            <p class="card-text">Edad - {{ empleados[kempleado].edad }}</p>
+            <p class="card-text">CUI - {{ empleados[kempleado].cui }}</p>
+            <p class="card-text">Fecha Contrato - {{ empleados[kempleado].fechaContrato }}</p>
+            <p class="card-text">Cargo - {{ cargos[empleados[kempleado].cargo.codigo].tipoCargo }}</p>
+
+            <button [routerLink]="['/empleado', kempleado]"
+                    type="button"
+                    class="btn btn-outline-primary">
+              <i class="fas fa-edit"></i> Editar
+            </button>
+            <button (click)="eliminarEmpleado(kempleado)"
+                    type="button"
+                    class="btn btn-outline-danger">
+              <i class="fas fa-trash"></i> Eliminar
+            </button>
+
+          </div>
+        </div>
+
+    </div>

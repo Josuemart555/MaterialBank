@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Usuario } from './interfaces/usuario';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,12 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'app';
+
+  usuario:Usuario;
+
+  verNav: boolean = false;
+
+  constructor(){
+  }
+
 }

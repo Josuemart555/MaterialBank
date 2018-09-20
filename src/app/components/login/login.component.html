@@ -1,0 +1,68 @@
+<div class="container main-container">
+
+  <h1>Iniciar Sesión</h1>
+
+  <div class="row">
+
+    <div class="col-md-6">
+
+      <form (ngSubmit)="login()"  #forma="ngForm">
+
+        <mat-form-field class="example-full-width">
+          <input matInput autocomplete="off"
+                 [(ngModel)]="usuario.email"
+                 type="email" name="email"
+                 placeholder="Email"
+                 #email="ngModel"
+                 required minlength="15"
+                 pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$">
+          <mat-hint>Los errores aparecen instantáneamente!</mat-hint>
+          <mat-error *ngIf="email.errors?.pattern">
+            Por favor, introduce una dirección de correo electrónico válida
+          </mat-error>
+          <mat-error *ngIf="email.errors?.required">
+            correo electronico es <strong>requerido</strong>
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+          <input matInput autocomplete="off"
+                 [(ngModel)]="usuario.password"
+                 type="password" name="password"
+                 class="form-control" required
+                 minlength="6" #password="ngModel"
+                 placeholder="Contraseña">
+          <mat-hint>Los errores aparecen instantáneamente!</mat-hint>
+          <mat-error *ngIf="email.errors?.pattern">
+            Por favor, introduce una dirección de correo electrónico válida
+          </mat-error>
+          <mat-error *ngIf="password.errors?.required">
+            La contraseña es <strong>requerida</strong>
+          </mat-error>
+          <mat-error *ngIf="password.errors?.minlength">
+            Introducir <strong>minimo de {{ password.errors.minlength.requiredLength }}</strong> caracteres
+          </mat-error>
+        </mat-form-field>
+
+        <div class="form-group botonLogin">
+          <button mat-raised-button
+                  color="primary"
+                  [disabled]="!forma.valid"
+                  type="submit">
+            Iniciar Sesión
+          </button>
+          <button mat-raised-button
+                  color="primary"
+                  [routerLink]="['/sign-up']"
+                  type="submit">
+            Registrate
+          </button>
+        </div>
+
+      </form>
+
+    </div>
+
+  </div>
+
+</div>

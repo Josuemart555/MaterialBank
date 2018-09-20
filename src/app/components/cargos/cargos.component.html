@@ -1,0 +1,61 @@
+<div class="container main-container bodyCliente">
+
+  <h1>Cargos</h1>
+  <hr>
+
+  <div class="row">
+    <div class="col-md-12 text-right">
+      <button (click)="regresaAdCig()"
+              type="button"
+              class="btn btn-outline-danger agregarCargoBoton">
+        <i class="fas fa-arrow-alt-circle-left"></i> Regresar
+      </button>
+      <button type="button"
+              class="btn btn-outline-primary agregarCargoBoton"
+              [routerLink]="['/cargo','nuevo']">
+          <i class="fas fa-plus"></i> Agregar
+      </button>
+    </div>
+  </div>
+
+  <div class="row">
+
+    <div class="col-md-12">
+
+      <div class="table-responsive">
+
+        <table class="table">
+          <thead class="thead-inverse">
+            <tr>
+              <th>Código</th>
+              <th>Tipo Cargo</th>
+              <th>Sueldo</th>
+              <th class="text-right">Editar</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let k of cargos | keys">
+              <td>{{ cargos[k].codigo }}</td>
+              <td>{{ cargos[k].tipoCargo }}</td>
+              <td>{{ cargos[k].sueldo }}</td>
+              <td class="text-right w120">
+                <button [routerLink]="['/cargo', k]"
+                        type="button" class="btn btn-outline-success">
+                    <i class="fas fa-edit"></i> Editar
+                </button>
+                <button (click)="eliminarCargo(k)"
+                        type="button" class="btn btn-outline-danger">
+                    <i class="fas fa-trash"></i> Eliminar
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>

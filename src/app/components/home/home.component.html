@@ -1,0 +1,61 @@
+<div class="container main-container bodyHome">
+
+  <h1 class="text-center" >Banco</h1>
+
+  <div class="text-right">
+    <button (click)="signOff()"
+            type="button"
+            class="btn btn-outline-danger">
+      <i class="fas fa-arrow-alt-circle-left"></i> Cerrar Sesión
+    </button>
+
+    <button *ngIf="usuario.role == 'ROLE_ADMIN'"
+            [routerLink]="['/advance-config']"
+            type="button"
+            class="btn btn-outline-warning">
+      <i class="fas fa-cog"></i> Advance Config
+    </button>
+  </div>
+
+  <hr>
+
+  <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+    <div class="carousel-inner" role="listbox">
+
+      <div class="carousel-item active" style="background-image:url('assets/img/banco1.jpg')"></div>
+      <div class="carousel-item" style="background-image:url('assets/img/banco3.jpg')"></div>
+      <div class="carousel-item" style="background-image:url('assets/img/banco4.jpg')"></div>
+
+    </div>
+    <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+  </div>
+
+  <div class="container top-30">
+    <div class="row">
+
+      <div class="col-md-4 text-center">
+        <img class="img-fluid img-thumbnail img-50" src="assets/img/prestamo.jpg" alt="">
+        <hr>
+        <a [routerLink]="['/prestamos']" class="btn btn-outline-primary">
+          Prestamos
+        </a>
+      </div>
+      <div class="col-md-4 text-center">
+        <img class="img-fluid img-thumbnail" src="assets/img/transacciones.jpg" alt="">
+        <hr>
+        <a [routerLink]="['/transacciones']" class="btn btn-outline-primary">
+          Transacciones
+        </a>
+      </div>
+
+    </div>
+  </div>
+
+</div>

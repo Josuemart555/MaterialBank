@@ -1,0 +1,64 @@
+<div class="container main-container">
+
+  <h1>Cuenta</h1>
+  <button [routerLink]="['/cuentas']"
+          class="btn btn-outline-danger">
+    Regresar
+  </button>
+  <hr>
+
+  <div class="row">
+    <div class="col-md-8">
+
+      <form>
+
+        <div class="form-group">
+          <label>Número Cuenta</label>
+          <input
+                 type="text" name=""
+                 class="form-control"
+                 placeholder="Número Cuenta"
+                 required>
+        </div>
+
+        <div class="form-group">
+          <label>Fecha Creación</label>
+          <input
+                 type="text" name=""
+                 class="form-control"
+                 placeholder="Fecha Creación"
+                 required>
+        </div>
+
+        <div class="form-group">
+          <label>Saldo Inicial</label>
+          <input
+                 type="text" name=""
+                 class="form-control"
+                 placeholder="Saldo Inicial"
+                 required>
+        </div>
+
+        <div class="form-group">
+          <label>Tipo Cuenta</label>
+          <select class="form-control" name="">
+            <option value="Ahorro">Ahorro</option>
+            <option value="Debito">Debito</option>
+            <option value="Infantil">Infantil</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <button
+                  type="submit"
+                  class="btn btn-outline-primary">
+             Guardar
+          </button>
+        </div>
+
+      </form>
+
+    </div>
+  </div>
+
+</div>

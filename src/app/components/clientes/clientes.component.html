@@ -1,0 +1,44 @@
+<div class="bodyCliente">
+
+  <h1>Clientes</h1>
+  <hr>
+
+  <div class="row">
+    <div class="col-md-12 text-right">
+      <button type="button" name="button"
+              class="btn btn-outline-primary agregarCargoBoton"
+              [routerLink]="['/cliente','nuevo']">
+          <i class="fas fa-plus"></i> Agregar
+      </button>
+    </div>
+  </div>
+
+  <div class="card-columns">
+
+    <div class="card" *ngFor="let kCliente of clientes | keys">
+        <div class="card-block">
+          <h4 class="card-title">{{ clientes[kCliente].nombre }}</h4>
+          <p class="card-text">Código - {{ clientes[kCliente].codigo }}</p>
+          <p class="card-text">Edad - {{ clientes[kCliente].edad }}</p>
+          <p class="card-text">CUI - {{ clientes[kCliente].cui }}</p>
+          <p class="card-text">Teléfono - {{ clientes[kCliente].telefono }}</p>
+          <p class="card-text">Dirección - {{ clientes[kCliente].direccion }}</p>
+
+          <button [routerLink]="['/cliente', kCliente]"
+                  type="button" class="btn btn-outline-success">
+              <i class="fas fa-edit"></i> Editar
+          </button>
+          <button (click)="eliminarCliente(kCliente)"
+                  type="button" class="btn btn-outline-danger">
+              <i class="fas fa-trash"></i> Eliminar
+          </button>
+          <br>
+          <button type="button" class="btn btn-outline-info">
+              <i class="fas fa-id-card"></i> Cuentas
+          </button>
+
+        </div>
+      </div>
+
+  </div>
+</div>

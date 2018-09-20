@@ -1,0 +1,99 @@
+<div class="container main-container">
+
+  <h3>Cargo</h3>
+  <button [routerLink]="['/cargos']"
+          class="btn btn-outline-danger">
+    Regresar
+  </button>
+
+  <hr>
+
+  <div class="row">
+
+    <div class="col-md-8">
+
+      <form (ngSubmit)="guardar()"  #forma="ngForm">
+
+        <div class="form-group"
+             [ngClass]="{ 'has-danger': codigo.errors?.minlength || codigo.errors?.required && codigo.touched  }">
+          <label>Código</label>
+          <input [(ngModel)]="cargo.codigo"
+                 type="text" name="codigo"
+                 class="form-control"
+                 placeholder="código"
+                 minlength="7"
+                 required #codigo="ngModel">
+
+                 <div *ngIf="codigo.errors?.required"
+                      class="form-control-feedback">
+                      Este campo es requerido
+                </div>
+                 <div *ngIf="codigo.errors?.minlength"
+                       class="form-control-feedback">
+                              Minimo {{ codigo.errors.minlength.requiredLength }} caracteres
+                 </div>
+
+        </div>
+
+        <div class="form-group"
+             [ngClass]="{ 'has-danger': tipoCargo.errors?.minlength || tipoCargo.errors?.required && tipoCargo.touched  }">
+          <label>Tipo Cargo</label>
+          <input [(ngModel)]="cargo.tipoCargo"
+                 type="text" name="tipoCargo"
+                 class="form-control"
+                 placeholder="tipo cargo"
+                 minlength="5"
+                 required #tipoCargo="ngModel">
+
+                 <div *ngIf="tipoCargo.errors?.required"
+                      class="form-control-feedback">
+                      Este campo es requerido
+                </div>
+                 <div *ngIf="tipoCargo.errors?.minlength"
+                       class="form-control-feedback">
+                              Minimo {{ tipoCargo.errors.minlength.requiredLength }} caracteres
+                 </div>
+
+        </div>
+
+        <div class="form-group"
+             [ngClass]="{ 'has-danger': sueldo.errors?.minlength || sueldo.errors?.required && sueldo.touched  }">
+          <label>Sueldo</label>
+          <div class="input-group">
+            <div class="input-group-addon">
+              <i class="fas fa-dollar-sign"></i>
+            </div>
+              <input [(ngModel)]="cargo.sueldo"
+              type="text" name="sueldo"
+              class="form-control"
+              placeholder="sueldo"
+              minlength="4"
+              required #sueldo="ngModel">
+          </div>
+
+                 <div *ngIf="sueldo.errors?.required"
+                      class="form-control-feedback">
+                      Este campo es requerido
+                </div>
+                 <div *ngIf="sueldo.errors?.minlength"
+                       class="form-control-feedback">
+                              Minimo {{ sueldo.errors.minlength.requiredLength }} caracteres
+                 </div>
+
+          </div>
+
+        <div class="form-group">
+          <button [disabled]="!forma.valid"
+                  type="submit"
+                  class="btn btn-outline-primary">
+             Guardar
+          </button>
+        </div>
+
+      </form>
+
+    </div>
+    
+  </div>
+
+</div>

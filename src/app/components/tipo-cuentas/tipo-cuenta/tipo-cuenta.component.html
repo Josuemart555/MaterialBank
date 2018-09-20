@@ -1,0 +1,97 @@
+<div class="container main-container">
+
+  <h3>Tipo De Cuenta</h3>
+  <button [routerLink]="['/tipos-cuentas']"
+          class="btn btn-outline-danger">
+    Regresar
+  </button>
+
+  <hr>
+
+  <div class="row">
+
+    <div class="col-md-8">
+
+      <form (ngSubmit)="guardar()" #forma="ngForm">
+
+        <div class="form-group"
+             [ngClass]="{ 'has-danger': codigo.errors?.minlength || codigo.errors?.required && codigo.touched  }">
+          <label>Código</label>
+          <input [(ngModel)]="tipoCuenta.codigo"
+                 type="text" name="codigo"
+                 class="form-control"
+                 minlength="7"
+                 required #codigo="ngModel">
+
+                 <div *ngIf="codigo.errors?.required"
+                      class="form-control-feedback">
+                      Este campo es requerido
+                </div>
+                 <div *ngIf="codigo.errors?.minlength"
+                       class="form-control-feedback">
+                              Minimo {{ codigo.errors.minlength.requiredLength }} caracteres
+                 </div>
+
+        </div>
+
+        <div class="form-group"
+             [ngClass]="{ 'has-danger': nombre.errors?.minlength || nombre.errors?.required && nombre.touched  }">
+          <label>Nombre</label>
+          <input [(ngModel)]="tipoCuenta.nombre"
+                 type="text" name="nombre"
+                 class="form-control"
+                 placeholder="Nombre"
+                 required #nombre="ngModel">
+
+                 <div *ngIf="nombre.errors?.required"
+                      class="form-control-feedback">
+                      Este campo es requerido
+                </div>
+                 <div *ngIf="nombre.errors?.minlength"
+                       class="form-control-feedback">
+                              Minimo {{ nombre.errors.minlength.requiredLength }} caracteres
+                 </div>
+
+        </div>
+
+        <div class="form-group"
+             [ngClass]="{ 'has-danger': saldoApertura.errors?.minlength || saldoApertura.errors?.required && saldoApertura.touched  }">
+          <label>Saldo Apertura</label>
+          <div class="input-group">
+            <div class="input-group-addon">
+              <i class="fas fa-dollar-sign"></i>
+            </div>
+            <input [(ngModel)]="tipoCuenta.saldoApertura"
+            type="text" name="saldoApertura"
+            class="form-control"
+            minlength="2"
+            placeholder="Saldo Apertura"
+            required #saldoApertura="ngModel">
+          </div>
+
+          <div *ngIf="saldoApertura.errors?.required"
+               class="form-control-feedback">
+               Este campo es requerido
+         </div>
+          <div *ngIf="saldoApertura.errors?.minlength"
+                class="form-control-feedback">
+                       Minimo {{ saldoApertura.errors.minlength.requiredLength }} caracteres
+          </div>
+
+        </div>
+
+        <div class="form-group">
+          <button [disabled]="!forma.valid"
+                  type="submit"
+                  class="btn btn-outline-primary">
+             Guardar
+          </button>
+        </div>
+
+      </form>
+
+    </div>
+
+  </div>
+
+</div>

@@ -1,0 +1,56 @@
+<div class="container main-container bodyCargos">
+
+  <h1>Tipos De Cuentas</h1>
+  <hr>
+
+  <div class="row">
+    <div class="col-md-12 text-right">
+      <button type="button" name="button"
+              class="btn btn-outline-primary agregarCargoBoton"
+              [routerLink]="['/tipo-cuenta','nuevo']">
+          <i class="fas fa-plus"></i> Agregar
+      </button>
+    </div>
+  </div>
+
+  <div class="row">
+
+    <div class="col-md-12">
+
+      <div class="table-responsive">
+
+        <table class="table">
+          <thead class="thead-inverse">
+            <tr>
+              <th>Código</th>
+              <th>Nombre</th>
+              <th>Saldo Apertura</th>
+              <th class="text-right">Editar</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let ktp of tiposCuentas | keys">
+              <td>{{ tiposCuentas[ktp].codigo }}</td>
+              <td>{{ tiposCuentas[ktp].nombre }}</td>
+              <td>{{ tiposCuentas[ktp].saldoApertura }}</td>
+              <td class="text-right w120">
+                <button [routerLink]="['/tipo-cuenta', ktp]"
+                        type="button" class="btn btn-outline-success">
+                    <i class="fas fa-edit"></i> Editar
+                </button>
+                <button (click)="eliminarTipoCuenta(ktp)"
+                        type="button" class="btn btn-outline-danger">
+                    <i class="fas fa-trash"></i> Eliminar
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
